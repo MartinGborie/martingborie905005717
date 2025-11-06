@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leone Stars Football Group - Discover the Next Star</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Load Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles for professional appearance and font */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafb; /* Light background for the whole page */
+        }
+        .text-primary {
+            color: #1e3a8a; /* Deep Indigo Blue */
+        }
+        .bg-accent {
+            background-color: #f59e0b; /* Vibrant Amber Gold */
+        }
+        .text-accent {
+            color: #f59e0b;
+        }
+        .nav-link.active {
+            border-bottom: 2px solid #f59e0b;
+            color: #1e3a8a;
+            font-weight: 600;
+        }
+        .view-section {
+            display: none;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-blue': '#1e3a8a',
+                        'primary-gold': '#f59e0b',
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <!-- Header Navigation Bar -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-2xl font-bold text-primary-blue">Leone<span class="text-primary-gold">Stars</span></a>
+                </div>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#home" data-view="home" class="nav-link text-gray-600 hover:text-primary-blue py-5 transition duration-150 ease-in-out">Home</a>
+                    <a href="#players" data-view="players" class="nav-link text-gray-600 hover:text-primary-blue py-5 transition duration-150 ease-in-out">Players</a>
+                    <a href="#matches" data-view="matches" class="nav-link text-gray-600 hover:text-primary-blue py-5 transition duration-150 ease-in-out">Matches</a>
+                    <a href="#about" data-view="home" class="nav-link text-gray-600 hover:text-primary-blue py-5 transition duration-150 ease-in-out">About</a>
+                    <a href="#contact" data-view="contact" class="nav-link text-gray-600 hover:text-primary-blue py-5 transition duration-150 ease-in-out">Contact</a>
+                </nav>
+
+                <!-- Auth/Actions -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <button class="flex items-center text-gray-600 hover:text-primary-blue transition duration-150 ease-in-out">
+                        <i data-lucide="bell" class="w-5 h-5 mr-1"></i> Sign Up
+                    </button>
+                    <button class="bg-primary-blue text-white hover:bg-indigo-800 transition duration-150 ease-in-out py-2 px-4 rounded-lg shadow-lg">
+                        Log In
+                    </button>
+                    <button class="p-2 border border-gray-200 rounded-full hover:bg-gray-100 transition duration-150 ease-in-out">
+                         <i data-lucide="user" class="w-5 h-5"></i>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden p-2 text-gray-600 hover:text-primary-blue">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-50">
+                <a href="#home" data-view="home" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:bg-primary-gold/10">Home</a>
+                <a href="#players" data-view="players" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:bg-primary-gold/10">Players</a>
+                <a href="#matches" data-view="matches" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:bg-primary-gold/10">Matches</a>
+                <a href="#about" data-view="home" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:bg-primary-gold/10">About</a>
+                <a href="#contact" data-view="contact" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:bg-primary-gold/10">Contact</a>
+                <div class="pt-4 border-t border-gray-200 space-y-1">
+                    <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-primary-blue hover:bg-primary-gold/10">Sign Up</a>
+                    <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-primary-blue text-center">Log In</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
+
+        <!-- 1. HOME VIEW (Default) -->
+        <section id="home-view" class="view-section">
+            
+            <!-- Hero Section: Discover the Next Leone Star -->
+            <div class="bg-primary-blue text-white rounded-xl shadow-2xl p-8 md:p-16 mb-16 relative overflow-hidden">
+                <div class="relative z-10">
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight">
+                        Discover the Next Leone Star.
+                    </h1>
+                    <p class="text-xl font-light mb-8 max-w-2xl">
+                        Empowering Sierra Leonean Football Talent. We build skills, character, and professional pathways for the brightest future stars.
+                    </p>
+                    <button class="bg-primary-gold text-primary-blue font-semibold py-3 px-8 rounded-lg shadow-xl hover:bg-amber-400 transition duration-300 transform hover:scale-105">
+                        Sign Up for Trials
+                    </button>
+                </div>
+                <!-- Background Pattern/Graphics -->
+                <div class="absolute top-0 right-0 h-full w-full opacity-10 bg-[url('https://www.svgrepo.com/show/513576/soccer-ball-1.svg')] bg-repeat"></div>
+                <i data-lucide="trophy" class="hidden md:block absolute bottom-0 right-16 w-36 h-36 text-primary-gold opacity-50"></i>
+            </div>
+            
+            <!-- Our Rising Stars Section -->
+            <div class="mb-16">
+                <h2 class="text-3xl font-bold text-center text-gray-800 mb-10 border-b-2 border-primary-gold inline-block pb-1">Our Rising Stars</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Star Card Template -->
+                    <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden">
+                        <div class="h-40 bg-gray-200 flex items-center justify-center">
+                            <i data-lucide="user-round" class="w-16 h-16 text-gray-400"></i>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-xl font-bold text-primary-blue">Mohamed Kallon</h3>
+                            <p class="text-sm text-primary-gold font-semibold mb-2">Forward | Age 19</p>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>Current Club: Bo Rangers</li>
+                                <li>Height: 1.85m</li>
+                                <li>Preferred Foot: Right</li>
+                            </ul>
+                            <a href="#" class="mt-4 inline-block text-primary-blue font-medium hover:text-primary-gold transition duration-150">View Profile &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- Repeat for 3 more players -->
+                    <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden">
+                        <div class="h-40 bg-gray-200 flex items-center justify-center">
+                            <i data-lucide="user-round" class="w-16 h-16 text-gray-400"></i>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-xl font-bold text-primary-blue">Osman Kakay</h3>
+                            <p class="text-sm text-primary-gold font-semibold mb-2">Defender | Age 21</p>
+                            <a href="#" class="mt-4 inline-block text-primary-blue font-medium hover:text-primary-gold transition duration-150">View Profile &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden">
+                        <div class="h-40 bg-gray-200 flex items-center justify-center">
+                            <i data-lucide="user-round" class="w-16 h-16 text-gray-400"></i>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-xl font-bold text-primary-blue">Augustus Kargbo</h3>
+                            <p class="text-sm text-primary-gold font-semibold mb-2">Midfielder | Age 20</p>
+                            <a href="#" class="mt-4 inline-block text-primary-blue font-medium hover:text-primary-gold transition duration-150">View Profile &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden">
+                        <div class="h-40 bg-gray-200 flex items-center justify-center">
+                            <i data-lucide="user-round" class="w-16 h-16 text-gray-400"></i>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-xl font-bold text-primary-blue">Alhassan Koroma</h3>
+                            <p class="text-sm text-primary-gold font-semibold mb-2">Goalkeeper | Age 22</p>
+                            <a href="#" class="mt-4 inline-block text-primary-blue font-medium hover:text-primary-gold transition duration-150">View Profile &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Our Story, Our Vision & Community Impact -->
+            <div class="mb-16 p-8 bg-white rounded-xl shadow-lg">
+                <h2 class="text-3xl font-bold text-center text-gray-800 mb-10 border-b-2 border-primary-gold inline-block pb-1">Our Story, Our Vision</h2>
+                
+                <div class="grid md:grid-cols-2 gap-12 mb-12">
+                    <div>
+                        <h3 class="text-2xl font-semibold text-primary-blue mb-3">Nurturing Sierra Leone's Football Future</h3>
+                        <p class="text-gray-600 mb-4">
+                            We are dedicated to scouting, developing, and promoting young football talent across Sierra Leone. Our mission is to provide the resources and opportunities necessary for these athletes to achieve their potential on the global stage, bringing pride and success back to the nation.
+                        </p>
+                        <button class="text-primary-blue font-semibold hover:text-primary-gold transition duration-150">Read Our Full Story &rarr;</button>
+                    </div>
+                    <!-- Placeholder for Image/Video -->
+                    <div class="h-64 bg-gray-200 rounded-lg flex items-center justify-center">
+                        <i data-lucide="gallery-vertical-default" class="w-12 h-12 text-gray-400"></i>
+                    </div>
+                </div>
+
+                <h3 class="text-2xl font-bold text-center text-gray-800 mt-12 mb-8">Our Community Impact</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Impact Card 1 -->
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-md">
+                        <div class="h-20 w-full bg-gray-200 mb-4 rounded-lg flex items-center justify-center">
+                             <i data-lucide="users-round" class="w-8 h-8 text-gray-400"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold text-primary-blue mb-2">Grassroots Talent Identification</h4>
+                        <p class="text-gray-600 text-sm">We scout underserved communities to find raw, unpolished talent and give them a professional chance.</p>
+                        <a href="#" class="mt-3 inline-block text-primary-gold text-sm font-medium hover:text-primary-blue transition duration-150">Learn More</a>
+                    </div>
+                    <!-- Impact Card 2 -->
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-md">
+                         <div class="h-20 w-full bg-gray-200 mb-4 rounded-lg flex items-center justify-center">
+                             <i data-lucide="school" class="w-8 h-8 text-gray-400"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold text-primary-blue mb-2">Youth Development Academy</h4>
+                        <p class="text-gray-600 text-sm">Holistic training covering technical skills, fitness, nutrition, and academic support for young athletes.</p>
+                        <a href="#" class="mt-3 inline-block text-primary-gold text-sm font-medium hover:text-primary-blue transition duration-150">View Academy</a>
+                    </div>
+                    <!-- Impact Card 3 -->
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-md">
+                         <div class="h-20 w-full bg-gray-200 mb-4 rounded-lg flex items-center justify-center">
+                             <i data-lucide="trophy" class="w-8 h-8 text-gray-400"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold text-primary-blue mb-2">Community Tournaments & Leagues</h4>
+                        <p class="text-gray-600 text-sm">Organizing local leagues to provide high-level competitive experience and community engagement.</p>
+                        <a href="#" class="mt-3 inline-block text-primary-gold text-sm font-medium hover:text-primary-blue transition duration-150">See Schedule</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Latest News & Updates -->
+            <div class="mb-16">
+                <h2 class="text-3xl font-bold text-center text-gray-800 mb-10 border-b-2 border-primary-gold inline-block pb-1">Latest News & Updates</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- News Card 1 -->
+                    <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col sm:flex-row items-start space-x-4">
+                        <div class="h-40 w-full sm:w-1/3 bg-gray-200 flex-shrink-0 rounded-lg flex items-center justify-center">
+                            <i data-lucide="file-text" class="w-10 h-10 text-gray-400"></i>
+                        </div>
+                        <div class="mt-4 sm:mt-0 w-full">
+                            <span class="text-xs text-gray-500 font-medium">Leone Stars | 2 days ago</span>
+                            <h3 class="text-xl font-bold text-primary-blue my-1">Kargbo Lands Historic Move to European Club</h3>
+                            <p class="text-gray-600 text-sm line-clamp-2">Midfielder Augustus Kargbo has successfully signed his first professional contract with a top-tier European club, marking a huge milestone for the academy.</p>
+                            <a href="#" class="mt-2 inline-block text-primary-gold font-medium hover:text-primary-blue transition duration-150">Read Article &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- News Card 2 -->
+                    <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col sm:flex-row items-start space-x-4">
+                        <div class="h-40 w-full sm:w-1/3 bg-gray-200 flex-shrink-0 rounded-lg flex items-center justify-center">
+                            <i data-lucide="file-text" class="w-10 h-10 text-gray-400"></i>
+                        </div>
+                        <div class="mt-4 sm:mt-0 w-full">
+                            <span class="text-xs text-gray-500 font-medium">Academy News | 1 week ago</span>
+                            <h3 class="text-xl font-bold text-primary-blue my-1">U-17 Squad Defeats Disjointed Premier League Challengers</h3>
+                            <p class="text-gray-600 text-sm line-clamp-2">Our young lions showcased exceptional teamwork and skill to secure a solid victory in a challenging friendly match this weekend.</p>
+                            <a href="#" class="mt-2 inline-block text-primary-gold font-medium hover:text-primary-blue transition duration-150">Read Article &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-10">
+                    <button class="border border-primary-blue text-primary-blue hover:bg-primary-blue hover:text-white transition duration-300 py-2 px-6 rounded-lg font-semibold">
+                        View All News
+                    </button>
+                </div>
+            </div>
+
+            <!-- CTA Footer Section -->
+            <div class="bg-primary-gold text-primary-blue rounded-xl shadow-2xl p-8 md:p-12 text-center">
+                <h2 class="text-3xl font-bold mb-4">Join Our Mission to Empower Talent</h2>
+                <p class="text-xl mb-6 max-w-3xl mx-auto">
+                    Support the next generation of Sierra Leonean football stars. Every contribution fuels their journey to success.
+                </p>
+                <button class="bg-primary-blue text-white font-semibold py-3 px-8 rounded-lg shadow-xl hover:bg-indigo-800 transition duration-300 transform hover:scale-105">
+                    Make a Donation Today
+                </button>
+            </div>
+
+        </section>
+
+        <!-- 2. PLAYERS VIEW (Hidden by default) -->
+        <section id="players-view" class="view-section">
+            <h1 class="text-4xl font-bold text-primary-blue mb-10 text-center">Players Roster</h1>
+            
+            <!-- Filters and Search -->
+            <div class="bg-white p-6 rounded-xl shadow-lg mb-10">
+                <div class="flex items-center space-x-2 mb-6 border-b pb-4">
+                    <i data-lucide="search" class="w-5 h-5 text-gray-400"></i>
+                    <input type="text" placeholder="Search players..." class="w-full p-2 text-lg border-none focus:outline-none" />
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
+                    <!-- Dropdown 1: Position -->
+                    <div>
+                        <label for="position" class="block text-sm font-medium text-gray-700 mb-1">Position</label>
+                        <select id="position" class="w-full p-2 border border-gray-300 rounded-lg focus:ring-primary-gold focus:border-primary-gold">
+                            <option>All Positions</option>
+                            <option>Forward</option>
+                            <option>Midfielder</option>
+                            <option>Defender</option>
+                            <option>Goalkeeper</option>
+                        </select>
+                    </div>
+
+                    <!-- Dropdown 2: Club -->
+                    <div>
+                        <label for="club" class="block text-sm font-medium text-gray-700 mb-1">Club</label>
+                        <select id="club" class="w-full p-2 border border-gray-300 rounded-lg focus:ring-primary-gold focus:border-primary-gold">
+                            <option>All Clubs</option>
+                            <option>Bo Rangers</option>
+                            <option>East End Lions</option>
+                        </select>
+                    </div>
+
+                    <!-- Age Range Slider -->
+                    <div class="md:col-span-2">
+                        <label for="age-range" class="block text-sm font-medium text-gray-700 mb-1">Age Range: <span id="age-value">18 - 40</span></label>
+                        <input type="range" id="age-range" min="15" max="45" value="40" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer range-lg" step="1">
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mt-6">
+                    <button class="w-full sm:w-1/2 bg-primary-blue text-white py-3 px-6 rounded-lg font-semibold hover:bg-indigo-800 transition duration-300">
+                        Apply Filters
+                    </button>
+                    <button class="w-full sm:w-1/2 border border-gray-400 text-gray-700 py-3 px-6 rounded-lg font-semibold hover:bg-gray-100 transition duration-300">
+                        Clear Filters
+                    </button>
+                </div>
+            </div>
+
+            <!-- Player Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <!-- Player Card Template -->
+                <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 p-4 text-center">
+                    <div class="h-40 bg-gray-200 rounded-lg flex items-center justify-center mb-4">
+                        <i data-lucide="user-round" class="w-16 h-16 text-gray-400"></i>
+                    </div>
+                    <p class="text-lg font-semibold text-primary-blue">Goalkeeper</p>
+                    <p class="text-sm text-gray-500">East End Lions</p>
+                </div>
+                 <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 p-4 text-center">
+                    <div class="h-40 bg-gray-200 rounded-lg flex items-center justify-center mb-4">
+                        <i data-lucide="user-round" class="w-16 h-16 text-gray-400"></i>
+                    </div>
+                    <p class="text-lg font-semibold text-primary-blue">Defender</p>
+                    <p class="text-sm text-gray-500">FC Johansen</p>
+                </div>
+                 <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 p-4 text-center">
+                    <div class="h-40 bg-gray-200 rounded-lg flex items-center justify-center mb-4">
+                        <i data-lucide="user-round" class="w-16 h-16 text-gray-400"></i>
+                    </div>
+                    <p class="text-lg font-semibold text-primary-blue">Forward</p>
+                    <p class="text-sm text-gray-500">Mighty Blackpool</p>
+                </div>
+                 <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 p-4 text-center">
+                    <div class="h-40 bg-gray-200 rounded-lg flex items-center justify-center mb-4">
+                        <i data-lucide="user-round" class="w-16 h-16 text-gray-400"></i>
+                    </div>
+                    <p class="text-lg font-semibold text-primary-blue">Midfielder</p>
+                    <p class="text-sm text-gray-500">Bo Rangers</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. MATCHES VIEW (Hidden by default) -->
+        <section id="matches-view" class="view-section">
+            
+             <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="md:col-span-2">
+                    <h1 class="text-4xl sm:text-5xl font-extrabold text-primary-blue leading-tight mb-4">
+                        Catch the Thrill: Your Ultimate Football Match Hub
+                    </h1>
+                    <p class="text-lg text-gray-600 mb-6">
+                        Stay up-to-date with all upcoming fixtures, past results, and special matches for the Leone Stars Development Squads.
+                    </p>
+                    <button class="border border-primary-blue text-primary-blue hover:bg-primary-blue hover:text-white transition duration-300 py-2 px-6 rounded-lg font-semibold">
+                        View All Matches
+                    </button>
+                </div>
+                <!-- Placeholder Image -->
+                <div class="h-48 md:h-full bg-gray-200 rounded-xl flex items-center justify-center">
+                     <i data-lucide="calendar-days" class="w-16 h-16 text-gray-400"></i>
+                </div>
+            </div>
+
+            <!-- Upcoming Matches -->
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Upcoming Matches</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                <!-- Match Card 1 (Upcoming) -->
+                <div class="bg-white rounded-xl shadow-lg p-5 border-t-4 border-primary-gold">
+                    <span class="text-xs font-semibold text-primary-gold bg-primary-gold/10 px-2 py-0.5 rounded-full mb-3 inline-block">Upcoming</span>
+                    <p class="text-sm text-gray-500 mb-2">National Stadium</p>
+                    <h3 class="text-2xl font-extrabold text-primary-blue mb-4">Oct 26, 2024 - 18:00 UTC</h3>
+                    <div class="flex justify-between items-center pt-4 border-t border-gray-100">
+                        <div class="text-center w-1/2">
+                            <i data-lucide="shield" class="w-8 h-8 text-primary-blue mx-auto mb-1"></i>
+                            <p class="font-medium text-gray-700">Eagle FC</p>
+                        </div>
+                        <span class="text-gray-400 font-bold mx-2">vs</span>
+                        <div class="text-center w-1/2">
+                            <i data-lucide="shield" class="w-8 h-8 text-gray-400 mx-auto mb-1"></i>
+                            <p class="font-medium text-gray-700">Lion United</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Match Card 2 (Upcoming) -->
+                <div class="bg-white rounded-xl shadow-lg p-5 border-t-4 border-primary-gold">
+                    <span class="text-xs font-semibold text-primary-gold bg-primary-gold/10 px-2 py-0.5 rounded-full mb-3 inline-block">Upcoming</span>
+                    <p class="text-sm text-gray-500 mb-2">City Arena</p>
+                    <h3 class="text-2xl font-extrabold text-primary-blue mb-4">Oct 27, 2024 - 20:30 UTC</h3>
+                    <div class="flex justify-between items-center pt-4 border-t border-gray-100">
+                        <div class="text-center w-1/2">
+                            <i data-lucide="shield" class="w-8 h-8 text-primary-blue mx-auto mb-1"></i>
+                            <p class="font-medium text-gray-700">Phoenix SC</p>
+                        </div>
+                        <span class="text-gray-400 font-bold mx-2">vs</span>
+                        <div class="text-center w-1/2">
+                            <i data-lucide="shield" class="w-8 h-8 text-gray-400 mx-auto mb-1"></i>
+                            <p class="font-medium text-gray-700">Dragon Dynamo</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Match Card 3 (Upcoming) -->
+                <div class="bg-white rounded-xl shadow-lg p-5 border-t-4 border-primary-gold">
+                    <span class="text-xs font-semibold text-primary-gold bg-primary-gold/10 px-2 py-0.5 rounded-full mb-3 inline-block">Upcoming</span>
+                    <p class="text-sm text-gray-500 mb-2">Coastal Park</p>
+                    <h3 class="text-2xl font-extrabold text-primary-blue mb-4">Oct 28, 2024 - 16:00 UTC</h3>
+                    <div class="flex justify-between items-center pt-4 border-t border-gray-100">
+                         <div class="text-center w-1/2">
+                            <i data-lucide="shield" class="w-8 h-8 text-primary-blue mx-auto mb-1"></i>
+                            <p class="font-medium text-gray-700">Star Strikers</p>
+                        </div>
+                        <span class="text-gray-400 font-bold mx-2">vs</span>
+                        <div class="text-center w-1/2">
+                            <i data-lucide="shield" class="w-8 h-8 text-gray-400 mx-auto mb-1"></i>
+                            <p class="font-medium text-gray-700">Ocean United</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Past Results -->
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Past Results</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                <!-- Result Card 1 -->
+                <div class="bg-white rounded-xl shadow-lg p-5 border-t-4 border-gray-400">
+                    <span class="text-xs font-semibold text-gray-700 bg-gray-200 px-2 py-0.5 rounded-full mb-3 inline-block">Finished</span>
+                    <p class="text-sm text-gray-500 mb-4">Thunder Dome</p>
+                    <div class="flex justify-between items-center">
+                        <div class="text-center w-1/3">
+                            <i data-lucide="shield" class="w-8 h-8 text-gray-400 mx-auto mb-1"></i>
+                            <p class="font-medium text-gray-700">Thunder FC</p>
+                        </div>
+                        <h3 class="text-4xl font-extrabold text-primary-blue mx-4">2 - 1</h3>
+                        <div class="text-center w-1/3">
+                            <i data-lucide="shield" class="w-8 h-8 text-gray-400 mx-auto mb-1"></i>
+                            <p class="font-medium text-gray-700">Blaze United</p>
+                        </div>
+                    </div>
+                </div>
+                 <!-- Result Card 2 -->
+                <div class="bg-white rounded-xl shadow-lg p-5 border-t-4 border-gray-400">
+                    <span class="text-xs font-semibold text-gray-700 bg-gray-200 px-2 py-0.5 rounded-full mb-3 inline-block">Finished</span>
+                    <p class="text-sm text-gray-500 mb-4">Riverbank Stadium</p>
+                    <div class="flex justify-between items-center">
+                        <div class="text-center w-1/3">
+                            <i data-lucide="shield" class="w-8 h-8 text-gray-400 mx-auto mb-1"></i>
+                            <p class="font-medium text-gray-700">Forest Green</p>
+                        </div>
+                        <h3 class="text-4xl font-extrabold text-primary-blue mx-4">0 - 0</h3>
+                        <div class="text-center w-1/3">
+                            <i data-lucide="shield" class="w-8 h-8 text-gray-400 mx-auto mb-1"></i>
+                            <p class="font-medium text-gray-700">River Rapids</p>
+                        </div>
+                    </div>
+                </div>
+                 <!-- Result Card 3 -->
+                <div class="bg-white rounded-xl shadow-lg p-5 border-t-4 border-gray-400">
+                    <span class="text-xs font-semibold text-gray-700 bg-gray-200 px-2 py-0.5 rounded-full mb-3 inline-block">Finished</span>
+                    <p class="text-sm text-gray-500 mb-4">Forge Arena</p>
+                    <div class="flex justify-between items-center">
+                        <div class="text-center w-1/3">
+                            <i data-lucide="shield" class="w-8 h-8 text-gray-400 mx-auto mb-1"></i>
+                            <p class="font-medium text-gray-700">Iron Warriors</p>
+                        </div>
+                        <h3 class="text-4xl font-extrabold text-primary-blue mx-4">3 - 2</h3>
+                        <div class="text-center w-1/3">
+                            <i data-lucide="shield" class="w-8 h-8 text-gray-400 mx-auto mb-1"></i>
+                            <p class="font-medium text-gray-700">Steel Titans</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Leone Stars Matches -->
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Leone Stars Matches</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                 <!-- LS Match Card 1 -->
+                <div class="bg-white rounded-xl shadow-lg p-5 border-t-4 border-primary-gold">
+                    <span class="text-xs font-semibold text-primary-gold bg-primary-gold/10 px-2 py-0.5 rounded-full mb-3 inline-block">Upcoming</span>
+                    <p class="text-sm text-gray-500 mb-2">Home Ground</p>
+                    <h3 class="text-2xl font-extrabold text-primary-blue mb-4">Nov 05, 2024 - 19:00 UTC</h3>
+                    <div class="flex justify-between items-center pt-4 border-t border-gray-100">
+                        <div class="text-center w-1/2">
+                            <i data-lucide="star" class="w-8 h-8 text-primary-blue mx-auto mb-1 fill-primary-blue"></i>
+                            <p class="font-medium text-gray-700">Leone Stars</p>
+                        </div>
+                        <span class="text-gray-400 font-bold mx-2">vs</span>
+                        <div class="text-center w-1/2">
+                            <i data-lucide="shield" class="w-8 h-8 text-gray-400 mx-auto mb-1"></i>
+                            <p class="font-medium text-gray-700">Desert Vipers</p>
+                        </div>
+                    </div>
+                </div>
+                 <!-- LS Match Card 2 -->
+                <div class="bg-white rounded-xl shadow-lg p-5 border-t-4 border-gray-400">
+                    <span class="text-xs font-semibold text-gray-700 bg-gray-200 px-2 py-0.5 rounded-full mb-3 inline-block">Finished</span>
+                    <p class="text-sm text-gray-500 mb-4">Away Field</p>
+                    <div class="flex justify-between items-center">
+                        <div class="text-center w-1/3">
+                            <i data-lucide="shield" class="w-8 h-8 text-gray-400 mx-auto mb-1"></i>
+                            <p class="font-medium text-gray-700">Forest Green</p>
+                        </div>
+                        <h3 class="text-4xl font-extrabold text-primary-blue mx-4">1 - 1</h3>
+                        <div class="text-center w-1/3">
+                            <i data-lucide="star" class="w-8 h-8 text-primary-blue mx-auto mb-1 fill-primary-blue"></i>
+                            <p class="font-medium text-gray-700">Leone Stars</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. CONTACT VIEW (Hidden by default) -->
+        <section id="contact-view" class="view-section">
+             <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-lg">
+                <h1 class="text-3xl font-bold text-center text-primary-blue mb-2">Send Us a Message</h1>
+                <p class="text-center text-gray-600 mb-8">
+                    Have a question or want to get in touch? Fill out the form below and we'll get back to you shortly.
+                </p>
+
+                <!-- Contact Form -->
+                <form id="contact-form" class="space-y-6">
+                    <div>
+                        <label for="full-name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                        <input type="text" id="full-name" placeholder="Enter your full name" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-primary-gold focus:border-primary-gold" required>
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                        <input type="email" id="email" placeholder="name@example.com" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-primary-gold focus:border-primary-gold" required>
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Your Message</label>
+                        <textarea id="message" rows="5" placeholder="Type your message here..." class="w-full p-3 border border-gray-300 rounded-lg focus:ring-primary-gold focus:border-primary-gold" required></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-primary-blue text-white py-3 rounded-lg font-semibold hover:bg-indigo-800 transition duration-300 shadow-md">
+                        Submit Message
+                    </button>
+                    <!-- Success/Error Message Box (replaces alert) -->
+                    <div id="form-message" class="hidden p-4 rounded-lg text-center" role="alert"></div>
+                </form>
+
+                <!-- Contact Details -->
+                <div class="mt-12 pt-8 border-t border-gray-100">
+                    <h2 class="text-2xl font-bold text-primary-blue mb-4">Our Contact Details</h2>
+                    <p class="text-gray-600 mb-6">
+                        Reach out to us directly via phone, email, or visit our office.
+                    </p>
+                    <ul class="space-y-3 text-lg text-gray-700">
+                        <li class="flex items-center">
+                            <i data-lucide="phone" class="w-5 h-5 mr-3 text-primary-gold"></i>
+                            +232 76 555 123
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="mail" class="w-5 h-5 mr-3 text-primary-gold"></i>
+                            sfa123@gmail.com
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="map-pin" class="w-5 h-5 mr-3 mt-1 text-primary-gold flex-shrink-0"></i>
+                            67 Lumley Road, Freetown, Sierra Leone
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary-blue mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-white">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <!-- Logo/Branding -->
+                <div>
+                     <a href="#" class="text-2xl font-bold text-white mb-4 block">Leone<span class="text-primary-gold">Stars</span></a>
+                    <p class="text-sm text-gray-400">Empowering Sierra Leone's football future.</p>
+                </div>
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="#" data-view="home" class="hover:text-primary-gold transition duration-150">About Us</a></li>
+                        <li><a href="#" data-view="players" class="hover:text-primary-gold transition duration-150">Players Roster</a></li>
+                        <li><a href="#" data-view="matches" class="hover:text-primary-gold transition duration-150">Match Schedule</a></li>
+                        <li><a href="#" data-view="contact" class="hover:text-primary-gold transition duration-150">Contact</a></li>
+                    </ul>
+                </div>
+                <!-- Support -->
+                 <div>
+                    <h4 class="font-semibold text-lg mb-4">Support</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="#" class="hover:text-primary-gold transition duration-150">FAQs</a></li>
+                        <li><a href="#" class="hover:text-primary-gold transition duration-150">Careers</a></li>
+                        <li><a href="#" class="hover:text-primary-gold transition duration-150">Partnerships</a></li>
+                    </ul>
+                </div>
+                <!-- Follow Us -->
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-primary-gold transition duration-150"><i data-lucide="facebook" class="w-6 h-6"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-primary-gold transition duration-150"><i data-lucide="twitter" class="w-6 h-6"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-primary-gold transition duration-150"><i data-lucide="instagram" class="w-6 h-6"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-primary-gold transition duration-150"><i data-lucide="linkedin" class="w-6 h-6"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 pt-8 border-t border-gray-700 text-center text-sm text-gray-400">
+                &copy; 2024 Leone Stars Football Group. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for View Switching and Interactivity -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize Lucide icons
+            lucide.createIcons();
+
+            const views = {
+                home: document.getElementById('home-view'),
+                players: document.getElementById('players-view'),
+                matches: document.getElementById('matches-view'),
+                contact: document.getElementById('contact-view'),
+            };
+            const navLinks = document.querySelectorAll('.nav-link');
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            // --- 1. View Switching Logic ---
+            function showView(viewName) {
+                // Hide all views
+                Object.values(views).forEach(view => view.style.display = 'none');
+                
+                // Show the requested view
+                if (views[viewName]) {
+                    views[viewName].style.display = 'block';
+                }
+
+                // Update active link class
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.dataset.view === viewName) {
+                        link.classList.add('active');
+                    }
+                });
+
+                // Close mobile menu after selection
+                mobileMenu.classList.add('hidden');
+            }
+
+            // Set default view on load
+            showView('home');
+
+            // Attach click listeners to navigation links
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const viewName = link.dataset.view;
+                    if (viewName) {
+                        showView(viewName);
+                    }
+                });
+            });
+
+            // --- 2. Mobile Menu Toggle ---
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // --- 3. Players View: Age Range Slider Logic ---
+            const ageRangeSlider = document.getElementById('age-range');
+            const ageValueDisplay = document.getElementById('age-value');
+            
+            if (ageRangeSlider && ageValueDisplay) {
+                 // Set initial value display
+                ageValueDisplay.textContent = `15 - ${ageRangeSlider.value}`;
+
+                ageRangeSlider.addEventListener('input', () => {
+                    ageValueDisplay.textContent = `15 - ${ageRangeSlider.value}`;
+                });
+            }
+
+            // --- 4. Contact Form Submission Logic ---
+            const contactForm = document.getElementById('contact-form');
+            const formMessage = document.getElementById('form-message');
+
+            if (contactForm && formMessage) {
+                contactForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    
+                    // Simulate form submission success
+                    formMessage.textContent = 'Thank you for your message! We will be in touch shortly.';
+                    formMessage.classList.remove('hidden', 'bg-red-100', 'text-red-700');
+                    formMessage.classList.add('bg-green-100', 'text-green-700');
+                    
+                    // Clear the form fields
+                    contactForm.reset();
+
+                    // Hide message after 5 seconds
+                    setTimeout(() => {
+                        formMessage.classList.add('hidden');
+                    }, 5000);
+                });
+            }
+
+        });
+    </script>
+</body>
+</html>
